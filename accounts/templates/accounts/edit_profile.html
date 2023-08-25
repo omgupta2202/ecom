@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Edit Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="{{ form.name.id_for_label }}">Name:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>
+            {{ form.phone_number }}
+        </div>
+        <!-- Include other fields similarly -->
+        <button type="submit">Save Changes</button>
+    </form>
+    <p><a href="{% url 'profile' %}">Back to Profile</a></p>
+{% endblock %}
