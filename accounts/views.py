@@ -10,7 +10,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .forms import UserProfileForm
 from .forms import CustomUserCreationForm
-
+from products.models import Product
 
 # Views
 def register(request):
@@ -43,8 +43,10 @@ def custom_logout(request):
 
 @login_required
 def profile(request):
+    products = Product.objects.all()  # Retrieve all products
+    context = {'products': products}
     user_profile = UserProfile.objects.get(user=request.user)
-    return render(request, 'accounts/profile.html', {'user_profile': user_profile})
+    return render(request, 'accounts/profile.html', {'user_profile': user_profile, 'products': products})
 
 @login_required
 def edit_profile(request):

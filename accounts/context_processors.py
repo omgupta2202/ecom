@@ -1,6 +1,7 @@
 from .models import UserProfile  # Import the UserProfile model
 from cart.models import Cart
 
+
 def cart_items_count(request):
     cart_items_count = 0
     if request.user.is_authenticated:
