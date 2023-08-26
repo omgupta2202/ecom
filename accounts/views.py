@@ -2,14 +2,15 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.contrib.auth import logout
+from django.contrib.auth.models import User
 from .models import UserProfile
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from django.contrib.auth.models import User
 from .forms import UserProfileForm
-from django.contrib.auth import logout
 from .forms import CustomUserCreationForm
-from django.urls import reverse
+
 
 # Views
 def register(request):
