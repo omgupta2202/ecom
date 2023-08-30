@@ -15,7 +15,7 @@ def add_to_cart(request, product_id):
         cart, created = Cart.objects.get_or_create(user=request.user)
         product = get_object_or_404(Product, pk=product_id)
         
-        quantity = request.POST.get('quantity', 1)  # Default to 1 if not specified
+        quantity = request.POST.get('quantity', 0)  # Default to 0 if not specified
         try:
             quantity = int(quantity)
             if quantity <= 0:

@@ -35,4 +35,8 @@
     </tbody>
   </table>
   <p>Total: ${{ cart_items|total_price }}</p>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <a class="btn btn-outline-dark" href="{% url 'orders:place_order' %}">Place Order</a>
+  </div>
+
 {% endblock %}

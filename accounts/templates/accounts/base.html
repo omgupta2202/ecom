@@ -35,13 +35,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'accounts:profile' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'accounts:about' %}">About</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="nav-link" href="{% url 'products:all_products' %}">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
+                            <a class="nav-link" href="{% url 'products:all_products' %}" role="button" >All Products</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav  mb-2 mb-lg-0 ms-lg-4">

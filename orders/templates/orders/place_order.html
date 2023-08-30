@@ -1,0 +1,36 @@
+{% extends 'accounts/base.html' %}
+
+{% load cart_tags %}
+
+{% block content %}
+  <h2>Place Order</h2>
+  
+  <h3>Order Summary</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cart_item in cart_items %}
+        <tr>
+          <td>{{ cart_item.product.name }}</td>
+          <td>{{ cart_item.quantity }}</td>
+          <td>${{ cart_item.product.price }}</td>
+          <td>${{ cart_item|calculate_subtotal }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  <h3>Total: ${{ total_price }}</h3>
+  
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Place Order</button>
+  </form>
+{% endblock %}
